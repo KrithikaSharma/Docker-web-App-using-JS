@@ -1,0 +1,48 @@
+<html>
+    <head>
+    <title>Docker Application</title>
+    <script>
+        function docker(){
+    var xhr= new XMLHttpRequest();
+    var cmd= document.getElementById("ipval").value;
+    var url="http://192.168.43.170/cgi-bin/my.py?x="+cmd;
+    console.log(cmd, url);
+    console.log(cmd);
+    xhr.open('GET',url, true);
+    xhr.send();
+    xhr.onload=function(){
+        var op=xhr.responseText;
+        document.getElementById("op").innerHTML=op;
+    }
+    }
+    </script>
+    <style>
+        body{
+            background-color: #ccffcc;
+            align-content: center;
+            /* background-position: center ; */
+        }
+        /* #op{
+            align-content: center;
+        } */
+        #op{
+            border-radius: 10px;
+            border-color: black;
+            
+            
+        }
+        
+    </style>
+    </head>
+
+    <body >
+        <center><div id="logo" ><img src="docker.png" /></div>
+        <center><h1>Welcome to Docker Application</h1></center>
+            [root@localhost ~]#<input id='ipval' type=text name=x><br/><br/>
+            <!-- <input type='button' onclick="docker()"> -->
+            <button onclick="docker()" >Run Cmd</button><br/><br/>
+            <textarea id="op" rows="10" cols="50" >Output:</textarea>
+        </center>    
+    </body>
+        
+</html>
